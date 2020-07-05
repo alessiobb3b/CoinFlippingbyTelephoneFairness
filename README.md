@@ -83,7 +83,7 @@ and choose one of the three modalities. Then in another terminal, or another pc 
 ```bash
 user@opDistro:~$ python3 main.py -c -a [IPADDRESS]
 ```
-Now choose again the same modality, as done for the server instance and BOOM now they're talking over a TCP connection and exchainging some weird stuff.
+Now choose again the same modality, as done for the server instance, and BOOM now they're talking over a TCP connection and exchainging some weird stuff.
 The ports used are, in order, *10000*, *10200*, *10300*. You can change them in the *client.py* script (lines: 15, 37, 173) and in the *server.py* script (lines: 16, 29, 112)
 The console will show you all the message if you look at the *client* instance and only the received messages if look at the *server* instace.
 
