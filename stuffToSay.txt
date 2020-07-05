@@ -1,0 +1,48 @@
+Ciao OTHERONE, sono MYNAME. Giochiamo a Testa o Croce?
+Ah, che peccato! Ho perso. Sarà per la prossima volta...
+Ciaooooooooo.
+Ok OTHERONE, adesso che abbiamo le risposte cifrate scambiamoci le chiavi pubbliche. Comincio io.
+OTHERONE ho controllato il tuo messaggio e corrisponde!
+OTHERONE ho controllato il tuo messaggio e non corrisponde!
+Speriamo bene!
+Adesso che abbiamo le chiavi pubbliche scambiamoci i veri risulatati.
+Oh, ho vinto io. Che bello!
+Aspetta! Prima di cominciare calcoliamo una chiave attraverso l'algoritmo di Diffie-Hellman.
+Va bene OTHERONE, ora scambiamoci le chiavi parziali.
+Adesso OTHERONE ti invio il mio n per il nostro lancio della monetina
+Come vouoi procedere OTHERONE?
+Ops devo essermi sbagliato. Riproveremo un'altra volta.
+Alla prossima.
+Ok OTHERONE allora procedo.
+E' andato tutto a buon fine?
+OTHERONE purtoppo la data di pubblicazione non è quella di oggi, non posso accettare il tuo messaggio.
+OTHERONE purtroppo non hai firmato il messaggio, non posso accettarlo.
+OTHERONE mi hai inviato un n diverso da quello che ti avevo inviato io.
+Bene OTHERONE inviami i valori così controlliamo chi ha vinto.
+OTHERONE, purtroppo i valori che mi hai inviato non corrisponde. Qualcosa è andato storto!
+Ciao OTHERONE!
+ firmato MYNAME.
+Ciao OTHERONE, che piacere risentirti. Certo, avevo proprio voglia di giocare a Testa o Croce! Dimmi allora... Testa o Croce?
+Ecco il risulato!: 
+Va bene OTHERONE, alla prossima!
+Allora inizio a lanciare.
+Ok OTHERONE!
+Ti seuguo OTHERONE...
+Oh no... Ho perso!
+Che bello ho vinto io!!!
+OTHERONE c'è un probelma, il tuo messaggio non corrisponde alla firma...
+ok OTHERONE, il messaggio corrisponde alla firma che mi hai inviato.
+Si, mi sembra la soluzione migliore.
+Va bene, adesso ti invio la mia chiave parziale!
+Adesso calcolo la mia chiave con i valori che mi hai manadato.
+Adesso controllerò il tuo messaggio.
+Ok eseguiamo il controllo di n.
+OTHERONE purtoppo la data di pubblicazione non è quella di oggi, non posso accettare il tuo n.
+OTHERONE purtroppo non hai firmato il messaggio, non posso accettarlo.
+OTHERONE il tuo n non rispetta le regole, non posso accettarlo.
+OTHERONE la verifica non è andata a buon fine!
+Si OTHERONE, possiamo finalmente giocare.
+ firmato MYNAME.
+Ops devo essermi sbagliato. Riproveremo un'altra volta. Ciao!
+Ok OTHERONE, ci siamo quasi.
+Ciao OTHERONE, che piacere risentirti. Certo, avevo proprio voglia di giocare a Testa o Croce!
