@@ -31,11 +31,13 @@ To archive fairness we will use the **Jacobi symbol** and **Modular arithmetic**
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\exists&space;\,&space;x,y&space;\in&space;Z_n^*&space;\,&space;|&space;\,&space;x^2&space;\equiv&space;y^2&space;\,&space;mod&space;\,&space;n,&space;\Bigl(\frac{x}{n}\Bigr)&space;\not\equiv&space;\Bigl(\frac{y}{n}\Bigr)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\exists&space;\,&space;x,y&space;\in&space;Z_n^*&space;\,&space;|&space;\,&space;x^2&space;\equiv&space;y^2&space;\,&space;mod&space;\,&space;n,&space;\Bigl(\frac{x}{n}\Bigr)&space;\not\equiv&space;\Bigl(\frac{y}{n}\Bigr)" title="\exists \, x,y \in Z_n^* \, | \, x^2 \equiv y^2 \, mod \, n, \Bigl(\frac{x}{n}\Bigr) \not\equiv \Bigl(\frac{y}{n}\Bigr)" /></a>
 
+All the most important message exchanges are encrypted using a key obtained via the *Diffie-Helman algorithm*.
+
 Basically we're going to build a set of numbers relatively prime to our starting number *n*. *n = p x q* where both p and q follow this rule: 
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=a&space;\in&space;\mathbb{N}&space;\,&space;|&space;\,&space;a&space;\equiv&space;3&space;\,&space;mod&space;\,&space;4" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a&space;\in&space;\mathbb{N}&space;\,&space;|&space;\,&space;a&space;\equiv&space;3&space;\,&space;mod&space;\,&space;4" title="a \in \mathbb{N} \, | \, a \equiv 3 \, mod \, 4" /></a>
 
-Then we build <a href="https://www.codecogs.com/eqnedit.php?latex=Z_n^*" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Z_n^*" title="Z_n^*" /></a> (set of numbers relatively prime to n)
+Then we build <a href="https://www.codecogs.com/eqnedit.php?latex=Z_n^*" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Z_n^*" title="Z_n^*" /></a> (set of numbers relatively prime to n). We need this to avoid the **Jacobi Symbol** to be equal to 0. Otherwise we will not be able to obtain a 50% chance.
 
 Now we have all we need to complete the protocol. Alice will send to Bob a sequence of numbers with the followig criteria: <a href="https://www.codecogs.com/eqnedit.php?latex=x^2&space;\,&space;mod&space;\,n&space;\,&space;|_{x&space;\,&space;\in&space;\,&space;Z_n^*}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x^2&space;\,&space;mod&space;\,n&space;\,&space;|_{x&space;\,&space;\in&space;\,&space;Z_n^*}" title="x^2 \, mod \,n \, |_{x \, \in \, Z_n^*}" /></a>
 
@@ -43,3 +45,5 @@ So when Bob will receive the numbers sent by Alice he will not know the Jacobi s
 
 ## RSA-Fairness
 
+The last one is a my personal revisitation of the Blum fairness. It's an easier way to archieve fairness in the coin flipping protocol. As first step Bob and Alice are both going to generate their *RSA keys*. Then Bob will send his choise to Alice using the folliwng method: <a href="https://www.codecogs.com/eqnedit.php?latex=K_b^&plus;(H(choise)))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?K_b^&plus;(H(choise)))" title="K_b^+(H(choise)))" /></a>.
+Alice will now send her tosses in the same way: <a href="https://www.codecogs.com/eqnedit.php?latex=K_a^&plus;(H(choise)))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?K_a^&plus;(H(choise)))" title="K_a^+(H(choise)))" /></a>.
