@@ -71,10 +71,10 @@ So now Bob adn Alice are able to look at the real values chosen and check if the
 
 To run this script you will need a *python 3* compiler and maybe more then one pc. 
 The application allows you to use the following flags:
--c, this sets the program to run in client mode. You will have to launch the server instance before the client one obviously.
--s, this sets the program to run in server mode, this cannot be used with the *-c* flag.
--a, this is used to set the other player IP address. You can use your loopback IP if you want to run it in your local machine.
--ht, this allows you to choose between head or tail. It's not possible to use this for the server instance and it is not valid for the Blum option because it uses only the guessings.
+* -c, this sets the program to run in client mode. You will have to launch the server instance before the client one obviously.
+* -s, this sets the program to run in server mode, this cannot be used with the *-c* flag.
+* -a, this is used to set the other player IP address. You can use your loopback IP if you want to run it in your local machine.
+* -ht, this allows you to choose between head or tail. It's not possible to use this for the server instance and it is not valid for the Blum option because it uses only the guessings.
 To run the program you have to write this line in the terminal: 
 ```bash
 user@opDistro:~$ python3 main.py -s -a 127.0.0.1
