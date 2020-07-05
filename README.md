@@ -56,7 +56,7 @@ super(server, self).getPlayer().setMyBlum(blumFairness.createFromRaw(decryptedMe
 ```
 3. Number of tosses, Blum was looking for a 80-times tosses both for the *check n passage* and for the real toss. I've used only 4 tosses for checking and 11 for the real game.
 4. *Jacobi Symbol*, to check if a number (*a*) has *1* as symbol you have to verify this criteria: <a href="https://www.codecogs.com/eqnedit.php?latex=k&space;\in&space;\mathbb{N}&space;\,&space;|&space;\,&space;k^2&space;\equiv&space;a&space;\,&space;mod&space;\;&space;n" target="_blank"><img src="https://latex.codecogs.com/gif.latex?k&space;\in&space;\mathbb{N}&space;\,&space;|&space;\,&space;k^2&space;\equiv&space;a&space;\,&space;mod&space;\;&space;n" title="k \in \mathbb{N} \, | \, k^2 \equiv a \, mod \; n" /></a>. The range of *k* has been set by be to in the interval: <a href="https://www.codecogs.com/eqnedit.php?latex=k&space;\in&space;[0,n^2]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?k&space;\in&space;[0,n^2]" title="k \in [0,n^2]" /></a>.
-4. Execution time, i've used the *Euclide algorithm* to find the elements in the Relatively primes to n set. It has, in the worst case, a computational cost <a href="https://www.codecogs.com/eqnedit.php?latex=O(n^2)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?O(n^2)" title="O(n^2)" /></a>. And to find the *Jacobi Symbol* you have to wait, still in the worst case, that the program scanned all the numbers between 0 and *n squared*. This means you're gonna need some ectra minutes to let this to finish...
+4. Execution time, i've used the *Euclide algorithm* to find the elements in the Relatively primes to n set. It has, in the worst case, a computational cost <a href="https://www.codecogs.com/eqnedit.php?latex=O(n^2)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?O(n^2)" title="O(n^2)" /></a>. Besides to find the *Jacobi Symbol* you will have to wait, still in the worst case, that the program scans all the numbers between 0 and *n squared*. This means, eventually, you're gonna need some extra minutes to let this to finish...
 
 ## RSA-Fairness
 
@@ -66,3 +66,10 @@ At this point Bob and Alice will exchange between them their public keys and che
 Alice will send:  <a href="https://www.codecogs.com/eqnedit.php?latex=K_b^&plus;(tosses)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?K_b^&plus;(tosses)" title="K_b^+(tosses)" /></a>
 
 So now Bob adn Alice are able to look at the real values chosen and check if the hash function of the received value is the same of the first one. If they're not the same then the other player has tried to cheat. As hash function i've used *SHA-1* but you can change it and use whatever you want mate.
+
+## How it works - a little bit better
+
+To run this script you will need a *python 3* compiler and maybe more then one pc. To run the program you have to write this line in the terminal: 
+```bash
+user@opDistro$ python3 main.py -s -a 127.0.0.1
+```
