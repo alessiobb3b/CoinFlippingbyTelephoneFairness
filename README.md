@@ -43,7 +43,7 @@ Now we have all we need to complete the protocol. Alice will send to Bob a seque
 
 So when Bob will receive the numbers sent by Alice he will not know the Jacobi symbol of that number because we have two possibile numbers, with a different symbol, that can produce that modular result. Bob now has to guess the symbol for each number sending back his answer to Alice. Alice will now deliver to Bob the real numbers and both can check the result. Who won is based on how many symbols Bob has guessed. So at the end both have still the 50% chance to win and we also provided fairness to the protocol.
 
-## Tecnical limitation of the Blum's implementation
+## Tecnical limitation of my Blum's implementation
 
 Trying to code this protocol was very hard for me and i needed a lot of compromises. 
 1. Dimension of *n*, Blum was looking for a 160-digit numbers and i used only a 6-digit *n*, i don't have all this computational power bro.
@@ -54,6 +54,9 @@ super(client, self).getPlayer().setMyBlum(blumFairness(3, 200, 4))
 ```python
 super(server, self).getPlayer().setMyBlum(blumFairness.createFromRaw(decryptedMessage, 200, 4, True))
 ```
+3. Number of tosses, Blum was looking for a 80-times tosses both for the *check n passage* and for the real toss. I've used only 4 tosses for checking and 11 for the real game.
+4. *Jacobi Symbol*, to check if a number (*a*) has *1* as symbol you have to verify this criteria: <a href="https://www.codecogs.com/eqnedit.php?latex=k&space;\in&space;\mathbb{N}&space;\,&space;|&space;\,&space;k^2&space;\equiv&space;a&space;\,&space;mod&space;\;&space;n" target="_blank"><img src="https://latex.codecogs.com/gif.latex?k&space;\in&space;\mathbb{N}&space;\,&space;|&space;\,&space;k^2&space;\equiv&space;a&space;\,&space;mod&space;\;&space;n" title="k \in \mathbb{N} \, | \, k^2 \equiv a \, mod \; n" /></a>. The range of *k* has been set by be to in the interval: <a href="https://www.codecogs.com/eqnedit.php?latex=k&space;\in&space;[0,n^2]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?k&space;\in&space;[0,n^2]" title="k \in [0,n^2]" /></a>.
+4. Execution time, i've used the *Euclide algorithm* to find the elements in the Relatively primes to n set. It has, in the worst case, a computational cost <a href="https://www.codecogs.com/eqnedit.php?latex=O(n^2)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?O(n^2)" title="O(n^2)" /></a>. And to find the *Jacobi Symbol* you have to wait, still in the worst case, that the program scanned all the numbers between 0 and *n squared*. This means you're gonna need some ectra minutes to let this to finish...
 
 ## RSA-Fairness
 
