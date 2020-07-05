@@ -48,12 +48,12 @@ So when Bob will receive the numbers sent by Alice he will not know the Jacobi s
 Trying to code this protocol was very hard for me and i needed a lot of compromises. 
 1. Dimension of *n*, Blum was looking for a 160-digit numbers and i used only a 6-digit *n*, i don't have all this computational power bro.
 2. Size of <a href="https://www.codecogs.com/eqnedit.php?latex=Z_n^*" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Z_n^*" title="Z_n^*" /></a>, i have been constrained to limit the size of this set to small number of elements, otherwise i would have an huge set of numbers and for all of them i should have calculated thier *Jacobi Symbol*, that's absurd. I've limited the set to only 200 elemnts, but i also needed the set to has the same numbers of elements with a *1* symbol and *-1* symbol. So in the best case the set has going to have 200 elements (100 with symbol *1* and 100 with symbol *-1*). To change this set you will need to go into both of *client.py* (line: 70) and *server.py* (line: 52) script and change the following line altering the 200 value with whatever value you want. Pay attention to the computational cost, more numbers in the set means more time spent in *Jacobi Symbol* calculation. 
-'''python
+```python
 super(client, self).getPlayer().setMyBlum(blumFairness(3, 200, 4))
-'''
-'''python
+```
+```python
 super(server, self).getPlayer().setMyBlum(blumFairness.createFromRaw(decryptedMessage, 200, 4, True))
-'''
+```
 
 ## RSA-Fairness
 
