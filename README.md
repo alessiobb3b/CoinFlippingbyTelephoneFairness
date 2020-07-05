@@ -71,11 +71,22 @@ So now Bob adn Alice are able to look at the real values chosen and check if the
 
 To run this script you will need a *python 3* compiler and maybe more then one pc. 
 The application allows you to use the following flags:
-* -c, this sets the program to run in client mode. You will have to launch the server instance before the client one obviously.
-* -s, this sets the program to run in server mode, this cannot be used with the *-c* flag.
-* -a, this is used to set the other player IP address. You can use your loopback IP if you want to run it in your local machine.
-* -ht, this allows you to choose between head or tail. It's not possible to use this for the server instance and it is not valid for the Blum option because it uses only the guessings.
+* **-c**, this sets the program to run in client mode. You will have to launch the server instance before the client one obviously.
+* **-s**, this sets the program to run in server mode, this cannot be used with the *-c* flag.
+* **-a**, this is used to set the other player IP address. You can use your loopback IP if you want to run it in your local machine.
+* **-ht**, this allows you to choose between head or tail. It's not possible to use this for the server instance and it is not valid for the Blum option because it uses only the guessings.
 To run the program you have to write this line in the terminal: 
 ```bash
-user@opDistro:~$ python3 main.py -s -a 127.0.0.1
+user@opDistro:~$ python3 main.py -s -a [IPADDRESS]
 ```
+and choose one of the three modalities. Then in another terminal, or another pc run this:
+```bash
+user@opDistro:~$ python3 main.py -c -a [IPADDRESS]
+```
+Now choose again the same modality, as done for the server instance and BOOM now they're talking over a TCP connection and exchainging some weird stuff.
+The ports used are, in order, *10000*, *10200*, *10300*. You can change them in the *client.py* script (lines: 15, 37, 173) and in the *server.py* script (lines: 16, 29, 112)
+The console will show you all the message if you look at the *client* instance and only the received messages if look at the *server* instace.
+
+## Maybe you are asking to your-self... Whe the hell has he done this?
+
+I've done this as a part of my bachelor thesis on *Cryptographical fair protcols*. I'm a student of *Information engineering* in L'Aquila University (Italy). I hope some one will find this usefull... that's also beacuse i was looking for a Blum fairness implementation and i've found nothing so or no one is intrested in this either i'm not able to do a Google search... That's a very good question...
