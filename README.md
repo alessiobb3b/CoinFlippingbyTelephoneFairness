@@ -43,10 +43,23 @@ Now we have all we need to complete the protocol. Alice will send to Bob a seque
 
 So when Bob will receive the numbers sent by Alice he will not know the Jacobi symbol of that number because we have two possibile numbers, with a different symbol, that can produce that modular result. Bob now has to guess the symbol for each number sending back his answer to Alice. Alice will now deliver to Bob the real numbers and both can check the result. Who won is based on how many symbols Bob has guessed. So at the end both have still the 50% chance to win and we also provided fairness to the protocol.
 
+## Tecnical limitation of the Blum's implementation
+
+Trying to code this protocol was very hard for me and i needed a lot of compromises. 
+1. Dimension of *n*, Blum was looking for a 160-digit numbers and i used only a 6-digit *n*, i don't have all this computational power bro.
+2. Size of <a href="https://www.codecogs.com/eqnedit.php?latex=Z_n^*" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Z_n^*" title="Z_n^*" /></a>, i have been constrained to limit the size of this set to small number of elements, otherwise i would have an huge set of numbers and for all of them i should have calculated thier *Jacobi Symbol*, that's absurd. I've limited the set to only 200 elemnts, but i also needed the set to has the same numbers of elements with a *1* symbol and *-1* symbol. So in the best case the set has going to have 200 elements (100 with symbol *1* and 100 with symbol *-1*). To change this set you will need to go into both of *client.py* (line: 70) and *server.py* (line: 52) script and change the following line altering the 200 value with whatever value you want. Pay attention to the computational cost, more numbers in the set means more time spent in *Jacobi Symbol* calculation. 
+'''python
+super(client, self).getPlayer().setMyBlum(blumFairness(3, 200, 4))
+'''
+'''python
+super(server, self).getPlayer().setMyBlum(blumFairness.createFromRaw(decryptedMessage, 200, 4, True))
+'''
+
 ## RSA-Fairness
 
 The last one is a my personal revisitation of the Blum fairness. It's an easier way to archieve fairness in the coin flipping protocol. As first step Bob and Alice are both going to generate their *RSA keys* and store them into a Certification Authority (a simple web server stored on a Raspberry for example). Then Bob will send his choise to Alice using the folliwng method: <a href="https://www.codecogs.com/eqnedit.php?latex=K_b^&plus;(H(choise)))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?K_b^&plus;(H(choise)))" title="K_b^+(H(choise)))" /></a>.
-Alice will now send her tosses in the same way: <a href="https://www.codecogs.com/eqnedit.php?latex=K_a^&plus;(H(choise)))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?K_a^&plus;(H(tosses)))" title="K_a^+(H(tosses)))" /></a>.
-At this point Bob and Alice will exchange between them their public keys and check their validity on the CA. If both of them are valid now they can exchange the real values. To do that they will send the values encryoted only with the public jey of the other one. Bob will send: <a href="https://www.codecogs.com/eqnedit.php?latex=K_a^&plus;(choise)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?K_a^&plus;(choise)" title="K_a^+(choise)" /></a>.
-Alice will send:<a href="https://www.codecogs.com/eqnedit.php?latex=K_b^&plus;(tosses)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?K_b^&plus;(tosses)" title="K_b^+(tosses)" /></a>
-At this 
+Alice will now send her tosses in the same way:  <a href="https://www.codecogs.com/eqnedit.php?latex=K_a^&plus;(H(choise)))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?K_a^&plus;(H(tosses)))" title="K_a^+(H(tosses)))" /></a>.
+At this point Bob and Alice will exchange between them their public keys and check their validity on the CA. If both of them are valid now they can exchange the real values. To do that they will send the values encryoted only with the public jey of the other one. Bob will send:  <a href="https://www.codecogs.com/eqnedit.php?latex=K_a^&plus;(choise)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?K_a^&plus;(choise)" title="K_a^+(choise)" /></a>.
+Alice will send:  <a href="https://www.codecogs.com/eqnedit.php?latex=K_b^&plus;(tosses)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?K_b^&plus;(tosses)" title="K_b^+(tosses)" /></a>
+
+So now Bob adn Alice are able to look at the real values chosen and check if the hash function of the received value is the same of the first one. If they're not the same then the other player has tried to cheat. As hash function i've used *SHA-1* but you can change it and use whatever you want mate.
