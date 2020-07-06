@@ -3,6 +3,7 @@
 ## What should this program do?
 
 This application is an example of how fairness work on a cryptographical protocol. **Fairness** is not easy to be explained but I'll try (my try is copy a better definition found in the magic world of internet). 
+
 *Fairness is, loosely speaking, the property of secure protocols that guarantees that either all honest parties will receive their output or no party will receive output. We know that this property can not be achieved for all functionalities unless when a majority of parties are honest* (tnx dude: [ref]( https://crypto.stackexchange.com/questions/20238/fairness-in-cryptography))
 
 What I've written provides you 3 different kinds of fairness.
@@ -44,7 +45,7 @@ Now we have all we need to complete the protocol. Alice will send to Bob a seque
 
 So when Bob will receive the numbers sent by Alice he will not know the Jacobi symbol of that number because we have two possibile numbers, with a different symbol, that can produce that modular result. Bob now has to guess the symbol for each number sending back his answer to Alice. Alice will now deliver to Bob the real numbers and both can check the result. Who won is based on how many symbols Bob has guessed. So at the end both have still the 50% chance to win and we also provided fairness to the protocol.
 
-## Tecnical limitation of my Blum's implementation
+## Technical limitation of my Blum's implementation
 
 Coding this protocol was very hard for me and I needed a lot of compromises. 
 1. Dimension of *n*, Blum was looking for a 160-digit numbers and i used only a 6-digit *n*, I don't have all this computational power bro.
