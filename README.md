@@ -89,6 +89,12 @@ Now choose again the same modality, as done for the server instance, and BOOM no
 The ports used are, in order, *10000*, *10200*, *10300*. You can change them in the *client.py* script (lines: 15, 37, 173) and in the *server.py* script (lines: 16, 29, 112)
 The console will show you all the message if you look at the *client* instance and only the received messages if look at the *server* instace.
 
+## Certification Authority
+In the folder named *Certification Authority* you will find two very ugly php scripts. Both of them are necessary in order to let the **RSA-Fairness** work properly. You will need to install a web server on a machine and then upload those scripts in it. To change the URL to connect to you will have to update lines **5** and **17** of *certificationAuthority.py* script. If you get some problems with folder permissions on the web server machine run the following command in the folder:
+```bash
+user@opDistro:~$ sudo chmod -R 777 <directoryWhereTheScriptAre>
+```
+
 ## Maybe you are asking to yourself... Why did you do all of this?
 
 I've done this as a part of my bachelor thesis on *Cryptographical fair protocols*. I'm a student of *Information engineering* in the University of L'Aquila (Italy). 
