@@ -2,8 +2,8 @@
 
 ## What should this program do?
 
-So this application is an example of how fairness work on a cryptographical protocol. **Fairness** is not easy to be explained but I'll try (my try is copy a better definition found in the magic world of internet). 
-*Fairness is, loosely speaking, the property of secure protocols that guarantees that either all honest parties will receive their output or no party will receive output. We know that this property can not be achieved for all functionalities unless when a majority of parties are honest*
+This application is an example of how fairness work on a cryptographical protocol. **Fairness** is not easy to be explained but I'll try (my try is copy a better definition found in the magic world of internet). 
+*Fairness is, loosely speaking, the property of secure protocols that guarantees that either all honest parties will receive their output or no party will receive output. We know that this property can not be achieved for all functionalities unless when a majority of parties are honest* (tnx dude: [ref]( https://crypto.stackexchange.com/questions/20238/fairness-in-cryptography))
 
 What I've written provides you 3 different kinds of fairness.
 
@@ -13,7 +13,7 @@ What I've written provides you 3 different kinds of fairness.
 
 ## How does it work? Short version
 
-You have to run the *main.py* script and pass it some parameters that we'll discover in a moment. The most importatnt thing you've to remember is that you have a client instance and a server istance.
+You have to run the *main.py* script and pass it some parameters that we'll discover in a moment. The most important thing you've to remember is that you have a client instance and a server istance.
 This 2 elemnts exchange messages over a TCP connection.
 Our two people, Alice and Bob, will try to play a match of *coin flipping* over a phone (simulated in this case obviously). How can we garantee for both of them that the other one is not trying to cheat? 
 
