@@ -95,7 +95,7 @@ In the folder named *Certification Authority* you will find two very ugly php sc
 user@opDistro:~$ sudo chmod -R 777 <directoryWhereTheScriptAre>
 ```
 
-## Maybe you are asking to yourself... Why did you do all of this?
+## Maybe you are asking to yourself... Why did I do all of this?
 
 I've done this as a part of my bachelor thesis on *Cryptographical fair protocols*. I'm a student of *Information engineering* in the University of L'Aquila (Italy). 
 I hope someone will find this useful, also because I was looking for a Blum fairness implementation and I've found nothing about that. 
