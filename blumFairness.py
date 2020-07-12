@@ -95,7 +95,7 @@ class blumFairness:
 
     def euclide(self, section):
         i = (int(self.getN()/2))
-        while(len(self.getZN()) < section):
+        while(len(self.getZN()) < section and i < self.getN()):
             temp = i
             _n = self.getN()
             while(temp > 0):
