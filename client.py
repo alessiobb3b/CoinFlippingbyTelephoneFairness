@@ -172,7 +172,7 @@ class client(clientServerModel):
     def rsaFairness(self):
         super(client, self).getConnection().setPort(10300)
         super(client, self).getConnection().createClientConnection()
-        super(client, self).getPlayer().setmyRSA(myRSA())
+        super(client, self).getPlayer().setMyRSA(myRSA())
         rsa = super(client, self).getPlayer().getMyRSA()
         if(not certificationAuthority.loadCA(rsa.getPubKey().n, rsa.getPubKey().e, super(client, self).getPlayer().getName())):
             super(client, self).getConnection().closeConnection()
