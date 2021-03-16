@@ -2,7 +2,7 @@
 
 ## What should this program do?
 
-This application is an example of how fairness work on a cryptographical protocol. **Fairness** is not easy to be explained but I'll try (my try is copy a better definition found in the magic world of internet). 
+This application is an example of how fairness work on a cryptographical protocol. **Fairness** is not easy to be explained, but I'll try (my try can be defined as a copy of a better definition found in the magic world of internet). 
 
 *Fairness is, loosely speaking, the property of secure protocols that guarantees that either all honest parties will receive their output or no party will receive output. We know that this property can not be achieved for all functionalities unless when a majority of parties are honest* (tnx dude: [ref]( https://crypto.stackexchange.com/questions/20238/fairness-in-cryptography))
 
@@ -22,7 +22,7 @@ Our two people, Alice and Bob, will try to play a match of *coin flipping* over 
 
 Yeah, ehm... it's written in the title. There is no fairness.
 When Bob yells at the phone to Alice his choise, she will always win the match. In the script Alice will randomically flip the coin for 11 times but if Bob obtains at least 5 point, instead of flipping the coin, Alice will just say to Bob the side chosen by Alice.
-Unluckily Bob will never win... poor Bob.
+Unluckily, Bob will never win... poor Bob.
 
 ## Blum-Fairness
 
@@ -33,32 +33,32 @@ To archive fairness we will use the **Jacobi symbol** and **Modular arithmetic**
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\exists&space;\,&space;x,y&space;\in&space;Z_n^*&space;\,&space;|&space;\,&space;x^2&space;\equiv&space;y^2&space;\,&space;mod&space;\,&space;n,&space;\Bigl(\frac{x}{n}\Bigr)&space;\not\equiv&space;\Bigl(\frac{y}{n}\Bigr)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\exists&space;\,&space;x,y&space;\in&space;Z_n^*&space;\,&space;|&space;\,&space;x^2&space;\equiv&space;y^2&space;\,&space;mod&space;\,&space;n,&space;\Bigl(\frac{x}{n}\Bigr)&space;\not\equiv&space;\Bigl(\frac{y}{n}\Bigr)" title="\exists \, x,y \in Z_n^* \, | \, x^2 \equiv y^2 \, mod \, n, \Bigl(\frac{x}{n}\Bigr) \not\equiv \Bigl(\frac{y}{n}\Bigr)" /></a>
 
-All the most important message exchanges are encrypted using a key obtained via the *Diffie-Helman algorithm*, that you can read [here](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange).
+All the most important message exchanges are encrypted using a key obtained via the *Diffie-Helman algorithm*. You'll be able to find more details about this algorithm [here](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange).
 
-Basically we're going to build a set of numbers relatively prime to our starting number *n*. *n = p x q* where both p and q follow this rule: 
+Basically, we're going to build a set of numbers relatively prime to our starting number *n*. *n = p x q* where both p and q follow this rule: 
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=a&space;\in&space;\mathbb{N}&space;\,&space;|&space;\,&space;a&space;\equiv&space;3&space;\,&space;mod&space;\,&space;4" target="_blank"><img src="https://latex.codecogs.com/gif.latex?a&space;\in&space;\mathbb{N}&space;\,&space;|&space;\,&space;a&space;\equiv&space;3&space;\,&space;mod&space;\,&space;4" title="a \in \mathbb{N} \, | \, a \equiv 3 \, mod \, 4" /></a>
 
-Then we build <a href="https://www.codecogs.com/eqnedit.php?latex=Z_n^*" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Z_n^*" title="Z_n^*" /></a> (set of numbers, in range 1 - (n-1), relatively prime to n). We need this to avoid the **Jacobi Symbol** to be equal to 0. Otherwise we will not be able to obtain a 50% chance.
+Then we build <a href="https://www.codecogs.com/eqnedit.php?latex=Z_n^*" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Z_n^*" title="Z_n^*" /></a> (set of numbers, in range 1 - (n-1), relatively prime to n). We need this to avoid the **Jacobi Symbol** to be equal to 0. Otherwise, we will not be able to obtain a 50% chance.
 
-Now we have all we need to complete the protocol. Alice will send to Bob a sequence of numbers with the followig criteria: <a href="https://www.codecogs.com/eqnedit.php?latex=x^2&space;\,&space;mod&space;\,n&space;\,&space;|_{x&space;\,&space;\in&space;\,&space;Z_n^*}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x^2&space;\,&space;mod&space;\,n&space;\,&space;|_{x&space;\,&space;\in&space;\,&space;Z_n^*}" title="x^2 \, mod \,n \, |_{x \, \in \, Z_n^*}" /></a>
+Now we have all we need to complete the protocol exhange. Alice will send to Bob a sequence of numbers, with the followig criteria: <a href="https://www.codecogs.com/eqnedit.php?latex=x^2&space;\,&space;mod&space;\,n&space;\,&space;|_{x&space;\,&space;\in&space;\,&space;Z_n^*}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x^2&space;\,&space;mod&space;\,n&space;\,&space;|_{x&space;\,&space;\in&space;\,&space;Z_n^*}" title="x^2 \, mod \,n \, |_{x \, \in \, Z_n^*}" /></a>
 
-So when Bob will receive the numbers sent by Alice he will not know the Jacobi symbol of that number because we have two possibile numbers, with a different symbol, that can produce that modular result. Bob now has to guess the symbol for each number sending back his answer to Alice. Alice will now deliver to Bob the real numbers and both can check the result. Who won is based on how many symbols Bob has guessed. So at the end both have still the 50% chance to win and we also provided fairness to the protocol.
+So, when Bob will receive the numbers, sent by Alice, he will not know the Jacobi symbol of that number. This due to the existance of two possibile numbers, with a different symbol, that can produce that modular result. Bob now has to guess the symbol for each number sending back his answer to Alice. Alice will now deliver to Bob the real numbers and both can check the result. Who won is based on how many symbols Bob has guessed. So at the end both have still the 50% chance to win and we also provided fairness to the protocol.
 
 ## Technical limitation of my Blum's implementation
 
 Coding this protocol was very hard for me and I needed a lot of compromises. 
-1. Dimension of *n*, Blum was looking for a 160-digit numbers and i used only a 6-digit *n*, I don't have all this computational power bro.
-2. Size of <a href="https://www.codecogs.com/eqnedit.php?latex=Z_n^*" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Z_n^*" title="Z_n^*" /></a>, i have been constrained to limit the size of this set to small number of elements, otherwise i would have an huge set of numbers and for all of them i should have calculated thier *Jacobi Symbol*, that's absurd. I've limited the set to only 200 elemnts, but i also needed the set to has the same numbers of elements with a *1* symbol and *-1* symbol. So in the best case the set has going to have 200 elements (100 with symbol *1* and 100 with symbol *-1*). To change this set you will need to go into both of *client.py* (line: 70) and *server.py* (line: 52) script and change the following line altering the 200 value with whatever value you want. Pay attention to the computational cost, more numbers in the set means more time spent in *Jacobi Symbol* calculation. 
+1. Dimension of *n*. Blum was looking for a 160-digit numbers and i used only a 6-digit *n*, I don't have all this computational power bro.
+2. Size of <a href="https://www.codecogs.com/eqnedit.php?latex=Z_n^*" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Z_n^*" title="Z_n^*" /></a>. I have been constrained to limit the size of this set, to a small number of elements. Otherwise, i would have an huge set of numbers and for all of them i should have calculated thier *Jacobi Symbol*, that's absurd. I've, also, limited the set to only 200 elemnts, but i needed the set to have the same numbers of elements with a *1* symbol and *-1* symbol. So, in the best case, the set has going to have 200 elements (100 with symbol *1* and 100 with symbol *-1*). To change this set you will need to go into both of *client.py* (line: 70) and *server.py* (line: 52) script, and change the following line altering the 200 value with whatever value you want. Pay attention to the computational cost, more numbers in the set means more time spent in *Jacobi Symbol* calculation. 
 ```python
 super(client, self).getPlayer().setMyBlum(blumFairness(3, 200, 4))
 ```
 ```python
 super(server, self).getPlayer().setMyBlum(blumFairness.createFromRaw(decryptedMessage, 200, 4, True))
 ```
-3. Number of tosses, Blum was looking for a 80-times tosses both for the *check n passage* and for the real toss. I've used only 4 tosses for checking and 11 for the real game.
-4. *Jacobi Symbol*, to check if a number (*a*) has *1* as symbol you have to verify this criteria: <a href="https://www.codecogs.com/eqnedit.php?latex=k&space;\in&space;\mathbb{N}&space;\,&space;|&space;\,&space;k^2&space;\equiv&space;a&space;\,&space;mod&space;\;&space;n" target="_blank"><img src="https://latex.codecogs.com/gif.latex?k&space;\in&space;\mathbb{N}&space;\,&space;|&space;\,&space;k^2&space;\equiv&space;a&space;\,&space;mod&space;\;&space;n" title="k \in \mathbb{N} \, | \, k^2 \equiv a \, mod \; n" /></a>. The range of *k* has been set by be to in the interval: <a href="https://www.codecogs.com/eqnedit.php?latex=k&space;\in&space;[0,n^2]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?k&space;\in&space;[0,n^2]" title="k \in [0,n^2]" /></a>.
-4. Execution time, i've used the *Euclide algorithm* to find the elements in the Relatively primes to n set. It has, in the worst case, a computational cost <a href="https://www.codecogs.com/eqnedit.php?latex=O(n^2)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?O(n^2)" title="O(n^2)" /></a>. Besides to find the *Jacobi Symbol* you will have to wait, still in the worst case, that the program scans all the numbers between 0 and *n squared*. This means, eventually, you're gonna need some extra minutes to let this to finish...
+3. Number of tosses. Blum was looking for a 80-times tosses both for the *check n passage* and for the real toss. I've used only 4 tosses for checking and 11 for the real game.
+4. *Jacobi Symbol*. In order to to check if a number (*a*) has *1* as symbol you have to verify this criteria: <a href="https://www.codecogs.com/eqnedit.php?latex=k&space;\in&space;\mathbb{N}&space;\,&space;|&space;\,&space;k^2&space;\equiv&space;a&space;\,&space;mod&space;\;&space;n" target="_blank"><img src="https://latex.codecogs.com/gif.latex?k&space;\in&space;\mathbb{N}&space;\,&space;|&space;\,&space;k^2&space;\equiv&space;a&space;\,&space;mod&space;\;&space;n" title="k \in \mathbb{N} \, | \, k^2 \equiv a \, mod \; n" /></a>. The range of *k* has been set by be to in the interval: <a href="https://www.codecogs.com/eqnedit.php?latex=k&space;\in&space;[0,n^2]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?k&space;\in&space;[0,n^2]" title="k \in [0,n^2]" /></a>.
+4. Execution time. I've used the *Euclide algorithm* to find the elements in the Relatively primes to n set. It has, in the worst case, a computational cost <a href="https://www.codecogs.com/eqnedit.php?latex=O(n^2)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?O(n^2)" title="O(n^2)" /></a>. Besides to find the *Jacobi Symbol* you will have to wait, still in the worst case, that the program scans all the numbers between 0 and *n squared*. This means, eventually, you're gonna need some extra minutes to let this to finish...
 
 ## RSA-Fairness
 
